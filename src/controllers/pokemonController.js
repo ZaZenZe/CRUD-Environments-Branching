@@ -22,14 +22,38 @@ const addPokemon = async (req, res) => {
   }
 };
 
-const deletePokemon = async (req, res) => {
+const updatePokemon = async (req, res) => {
   const { id } = req.params;
+  const { name, colour, pokemon } = req.body;
   try {
-    await pool.query('DELETE FROM pokemon WHERE id = $1', [id]);
-    res.json({ message: 'Pokemon deleted' });
+    const result = await pool.query(
+      'UPDATE pokemon SET name = $1, colour = $2, pokemon = $3 WHERE id = $4 RETURNING *',
+      [name, colour, pokemon, id]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Pokemon not found" });
+    }
+
+    res.json(result.rows[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-module.exports = { getPokemons, addPokemon, deletePokemon };
+const deletePokemon = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query('DELETE FROM pokemon WHERE id = $1 RETURNING *', [id]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Pokemon not found" });
+    }
+
+    res.json({ message: "Pokemon deleted", deletedPokemon: result.rows[0] });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = { getPokemons, addPokemon, updatePokemon, deletePokemon };
