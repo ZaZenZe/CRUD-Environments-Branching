@@ -5,6 +5,7 @@ This is an assignment which was provided to us during Software Integration cours
 - The application has minimal services (CRUD).
 - Application is attached to a database (PostgreSQL)
 - The main point of this assignment is for the professor to see the **GitHub workflow, Pull Requests, Commit etc**.
+- **ALSO MAKE SURE TO CHANGE CONTENTS IN `.env` FILE AND UPDATE IT WITH THE DETAILS OF THE DATABASE SERVER YOU ARE RUNNING IN YOUR SERVER**
 
 ### Breaking down the Coding part of this assignment
 - First of all, NodeJS is used for this application.
