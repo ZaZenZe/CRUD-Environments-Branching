@@ -1,13 +1,21 @@
 # CRUD-Environments-Branching
 This is an assignment which was provided to us during Software Integration course.
 
-## Brief Overview of the assignment
+## This branch is Test branch
+As you can see this is a test branch, so when you run `npm test` from the root of this folder, it will run few tests for unit and integration testing. 
+**The things that are added here :**
+- The `test` folder in src.
+- The `pokemon.integration.test.js` in the integration folder of the test.
+- The `pokemonController.unit.test.js` in the unit folder of the test.
+- Used `chai` for the tests.
+
+### Brief Overview of the assignment
 - The application has minimal services (CRUD).
 - Application is attached to a database (PostgreSQL)
 - The main point of this assignment is for the professor to see the **GitHub workflow, Pull Requests, Commit etc**.
 - **ALSO MAKE SURE TO CHANGE CONTENTS IN `.env` FILE AND UPDATE IT WITH THE DETAILS OF THE DATABASE SERVER YOU ARE RUNNING IN YOUR SERVER**
 
-### Breaking down the Coding part of this assignment
+#### Breaking down the Coding part of this assignment
 - First of all, NodeJS is used for this application.
 - `db.js` This is responsible for the basic DB connection.
 - `app.js` Sets up server, connects to db etc.
