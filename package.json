@@ -2,9 +2,10 @@
   "name": "crud-environments-branching",
   "version": "1.0.0",
   "description": "A small model with minimal services (CRUD) with a connection to a database.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "cross-env NODE_ENV=test mocha \"src/test/**/*.test.js\""
   },
   "keywords": [],
   "author": "",
@@ -12,9 +13,15 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "pg": "^8.13.3"
+    "pg": "^8.13.3",
+    "pgtools": "^1.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "chai": "^4.3.7",
+    "cross-env": "^7.0.3",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.1.9",
+    "sinon": "^15.2.0",
+    "supertest": "^6.3.3"
   }
 }
